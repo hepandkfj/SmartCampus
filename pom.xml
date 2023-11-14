@@ -24,6 +24,10 @@
             <groupId>org.app</groupId>
             <artifactId>boot-commons</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.app</groupId>
+            <artifactId>boot-service</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
