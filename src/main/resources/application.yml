@@ -1,0 +1,57 @@
+server:
+  port: 8080
+
+
+app:
+  jwt:
+    time: 7200
+    secret: 'kMuHnLHSS6pSoQUrRCiQ154tYmmzvORe+BdPzGufU3PQOaPwrG1l+KNH+jPJFEsgCMsSgaVZCI1dzOqq7/OjfQ=='
+  super_admin: 1
+  admin_role: 1
+  app_name: NetAdmin
+  pageSize: 100
+  configGroup: 1,2
+  upload:
+    dir: uploads
+    url: http://127.0.0.1:8080
+
+spring:
+  aop:
+    auto: true
+#  jackson:
+#    defaultPropertyInclusion: NON_NULL
+  profiles:
+    active: dev
+  mvc:
+    throw-exception-if-no-handler-found: true
+    static-path-pattern: /uploads/**
+  servlet:
+    multipart:
+      max-request-size: 20MB
+      max-file-size: 20MB
+  web:
+    resources:
+      add-mappings: false
+      static-locations: classpath:/uploads/, file:uploads/
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      database: 0
+      timeout: 1800000
+
+
+logging:
+  level:
+    root: info
+    com:
+      web: debug
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    map-underscore-to-camel-case: false
+
