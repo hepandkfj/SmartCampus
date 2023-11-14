@@ -4,3 +4,9 @@ spring:
     url: jdbc:mysql://192.168.1.1:3306/test?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
     password: root
+    hikari:
+      max-lifetime: 60
+      minimum-idle: 1
+      maximum-pool-size: 10
+      connection-timeout: 30000
+      validation-timeout: 5000
