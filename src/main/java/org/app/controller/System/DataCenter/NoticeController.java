@@ -53,7 +53,7 @@ class NoticeController {
      */
     @GetMapping("read/{id}")
     @Permission("system:notice:read")
-    public Object read() {
+    public Object read(@PathVariable Integer id) {
         return service.read();
     }
 
@@ -63,7 +63,7 @@ class NoticeController {
     @PutMapping("update/{id}")
     @Permission("system:notice:update")
     @OperationLog("更新")
-    public Object update() {
+    public Object update(@PathVariable Integer id) {
         return service.update();
     }
 

@@ -42,7 +42,7 @@ class RoleController {
      * 通过角色获取菜单
      */
     @GetMapping("getMenuByRole/{id}")
-    public Object getMenuByRole() {
+    public Object getMenuByRole(@PathVariable Integer id) {
         return service.getMenuByRole();
     }
 
@@ -50,7 +50,7 @@ class RoleController {
      * 通过角色获取部门
      */
     @GetMapping("getDeptByRole/{id}")
-    public Object getDeptByRole() {
+    public Object getDeptByRole(@PathVariable Integer id) {
         return service.getDeptByRole();
     }
 
@@ -78,7 +78,7 @@ class RoleController {
     @PutMapping("update/{id}")
     @Permission("system:role:update")
     @OperationLog("更新角色")
-    public Object update() {
+    public Object update(@PathVariable Integer id) {
         return service.update();
     }
 
@@ -88,7 +88,7 @@ class RoleController {
     @PutMapping("menuPermission/{id}")
     @Permission("system:role:menuPermission")
     @OperationLog("更新用户菜单权限")
-    public Object menuPermission() {
+    public Object menuPermission(@PathVariable Integer id) {
         return service.update();
     }
 
@@ -98,7 +98,7 @@ class RoleController {
     @PutMapping("dataPermission/{id}")
     @Permission("system:role:dataPermission")
     @OperationLog("更新用户数据权限")
-    public Object dataPermission() {
+    public Object dataPermission(@PathVariable Integer id) {
         return service.update();
     }
 

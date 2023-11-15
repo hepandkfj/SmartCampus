@@ -53,7 +53,7 @@ class UserController {
      */
     @GetMapping("read/{id}")
     @Permission("system:user:read")
-    public Object read(int $id) {
+    public Object read(@PathVariable Integer id) {
         return service.read();
     }
 
@@ -63,7 +63,7 @@ class UserController {
     @PutMapping("update/{id}")
     @Permission("system:user:update")
     @OperationLog("更新一个用户信息")
-    public Object update() {
+    public Object update(@PathVariable Integer id) {
         return service.update();
     }
 

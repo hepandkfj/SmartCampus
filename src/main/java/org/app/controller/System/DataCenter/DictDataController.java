@@ -2,12 +2,10 @@ package org.app.controller.System.DataCenter;
 
 
 import lombok.RequiredArgsConstructor;
-import org.app.Annotation.Auth;
-import org.app.Annotation.DeleteCache;
-import org.app.Annotation.OperationLog;
-import org.app.Annotation.Permission;
+import org.app.Annotation.*;
 import org.app.service.System.SystemDictDataService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -35,16 +33,16 @@ class DictDataController {
      * 快捷查询一个字典
      */
     @GetMapping("list")
-    public Object list() {
-        return service.getList();
+    public Object list(@Validated @RBody String code) {
+        return service.getList(code);
     }
 
     /**
      * 快捷查询多个字典
      */
     @GetMapping("lists")
-    public Object lists() {
-        return service.getLists();
+    public Object lists(@Validated @RBody String codes) {
+        return service.getLists(codes);
     }
 
     /**
@@ -82,8 +80,8 @@ class DictDataController {
      */
     @GetMapping("read/{id}")
     @Permission("system:dict:read")
-    public Object read() {
-        return service.read();
+    public Object read(@PathVariable Integer id) {
+        return service.read(id);
     }
 
     /**
@@ -93,12 +91,12 @@ class DictDataController {
     @Permission("system:dict:update")
     @OperationLog("更新一个字典类型")
     @DeleteCache("Dict:*")
-    public Object update() {
+    public Object update(@PathVariable Integer id) {
         return service.update();
     }
 
     /**
-     * 单个或批量字典数据
+     * 单个或批量删除字典数据
      */
     @DeleteMapping("delete")
     @Permission("system:dict:delete")

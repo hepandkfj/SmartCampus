@@ -60,7 +60,7 @@ class PostController {
      */
     @GetMapping("read/{id}")
     @Permission("system:post:read")
-    public Object read(int $id) {
+    public Object read(@PathVariable Integer id) {
         return service.read();
     }
 
@@ -70,7 +70,7 @@ class PostController {
     @PutMapping("update/{id}")
     @Permission("system:post:update")
     @OperationLog("更新数据")
-    public Object update() {
+    public Object update(@PathVariable Integer id) {
         return service.update();
     }
 

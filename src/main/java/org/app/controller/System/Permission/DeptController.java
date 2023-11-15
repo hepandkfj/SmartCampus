@@ -88,7 +88,7 @@ class DeptController {
     @PutMapping("update/{id}")
     @Permission("system:dept:update")
     @OperationLog("更新部门")
-    public Object update() {
+    public Object update(@PathVariable Integer id) {
         return service.update();
     }
 

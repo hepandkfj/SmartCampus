@@ -57,7 +57,7 @@ class DictTypeController {
      */
     @GetMapping("read/{id}")
     @Permission("system:dict:read")
-    public Object read(int $id) {
+    public Object read(@PathVariable Integer id) {
         return service.read();
     }
 
@@ -67,7 +67,7 @@ class DictTypeController {
     @PutMapping("update/{id}")
     @Permission("system:dict:update")
     @OperationLog("更新字典类型")
-    public Object update() {
+    public Object update(@PathVariable Integer id) {
         return service.update();
     }
 

@@ -61,7 +61,7 @@ class MenuController {
     @PutMapping("update/{id}")
     @Permission("system:menu:update")
     @OperationLog("更新菜单")
-    public Object update() {
+    public Object update(@PathVariable Integer id) {
         return service.update();
     }
 
@@ -81,7 +81,7 @@ class MenuController {
     @Permission("system:menu:realDelete")
     @OperationLog("单个或批量真实删除菜单 （清空回收站）")
     public Object realDelete() {
-        return service.realDel();
+        return service.realDelete();
     }
 
     /**
